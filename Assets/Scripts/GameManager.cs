@@ -82,8 +82,8 @@ public class GameManager : MonoBehaviour
 
     private void LateUpdate()
     {
-		// F5キーが押されたら、シーンを読み込みなおすことでリセットする
-        if (Input.GetKeyDown(KeyCode.F5))
+		// Rキーが押されたら、シーンを読み込みなおすことでリセットする
+        if (Input.GetKeyDown(KeyCode.R))
         {
 			SceneManager.LoadScene("GameScene");
         }
@@ -158,7 +158,7 @@ public class GameManager : MonoBehaviour
 		// ゲームステートのTextをゲームオーバーにする
 		if (gameStateLabelText != null)
 		{
-			gameStateLabelText.text = "Game Over\nPress F5 key to continue";
+			gameStateLabelText.text = "Game Over\nPress R key to continue";
 		}
 	}
 
