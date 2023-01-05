@@ -44,7 +44,9 @@ public class Bullet : MonoBehaviour
 		this.damageScale = damageScale;
 
 		transform.position = createPosition;
-		transform.rotation = Quaternion.FromToRotation(Vector3.up, moveDir);
+
+		Quaternion rotation = Quaternion.FromToRotation(Vector3.up, moveDir);
+		transform.rotation = rotation;
 	}
 
 	private void Update()
