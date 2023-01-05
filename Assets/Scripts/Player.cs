@@ -420,6 +420,7 @@ public class Player : MonoBehaviour
         }
         else if (!_isExploding && Input.GetKeyDown(KeyCode.C))
         {
+            _isExploding = true;
             StartCoroutine(ExplodeLines());
         }
     }
@@ -432,8 +433,14 @@ public class Player : MonoBehaviour
     {
         WaitForSeconds wait = new(_explosionInterval);
 
-        foreach (var line in _lineList)
+        for (int i = 0; i < _lineList.Count; i++)
         {
+            Line line = _lineList[i];
+            if (line == null)
+            {
+                continue;
+            }
+
             Explosion explosion = line.GetComponent<Explosion>();
             explosion.Initialize(screenRect);
             explosion.StartExplode(line.GetPosition());
@@ -442,6 +449,8 @@ public class Player : MonoBehaviour
         }
 
         _lineList.Clear();
+
+        _isExploding = false;
     }
 
     /// <summary>
